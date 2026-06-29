@@ -29,24 +29,28 @@ Choose Department By Temperature
     END
 
 Add Cheapest Product    [Arguments]    ${keyword}
+    Wait Until Page Contains Element    css:.text-center.col-4
     ${index}=    Cheapest Index    ${keyword}
     Click Element    xpath=(//div[@class='text-center col-4'])[${index}]//button
+    Sleep    0.8s
 
 Go To Cart
     Click Button    xpath=//button[contains(.,'Cart')]
 
 Pay With Card
-    Click Button    xpath=//button[contains(.,'Pay with Card')]
+    Wait Until Page Contains    Pay with Card    20s
+    Click Pay With Card
 
 Complete Stripe Checkout
     Wait Until Element Is Visible    xpath=//iframe[@name='stripe_checkout_app']    30s
     Select Frame    xpath=//iframe[@name='stripe_checkout_app']
-    Input Text    id:email    ${EMAIL}
-    Input Text    id:card_number    ${CARD}
-    Input Text    id:cc-exp    ${EXPIRY}
-    Input Text    id:cc-csc    ${CVC}
-    Input Text    id:billing-zip    ${ZIP}
-    Click Button    xpath=//button[contains(.,'Pay')]
+    Wait Until Element Is Visible    id:email    20s
+    Type Slow    email    ${EMAIL}
+    Type Slow    card_number    ${CARD}
+    Type Slow    cc-exp    ${EXPIRY}
+    Type Slow    cc-csc    ${CVC}
+    Type Slow    billing-zip    ${ZIP}
+    Click Button    id:submitButton
     Unselect Frame
 
 Verify Payment Success
