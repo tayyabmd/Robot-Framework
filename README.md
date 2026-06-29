@@ -20,4 +20,4 @@ robot --pythonpath resources --outputdir results tests
 Robot Framework · SeleniumLibrary · custom Python keywords · GitHub Actions CI.
 
 
-![Uploading image.png…]()
+<img width="948" height="909" alt="image" src="https://github.com/user-attachments/assets/37f16c97-bef1-4ed8-8adf-0c3b2607f709" />
