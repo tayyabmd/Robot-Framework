@@ -18,3 +18,6 @@ robot --pythonpath resources --outputdir results tests
 
 ## Stack
 Robot Framework · SeleniumLibrary · custom Python keywords · GitHub Actions CI.
+
+
+![Uploading image.png…]()
